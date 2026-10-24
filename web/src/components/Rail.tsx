@@ -39,14 +39,14 @@ function SettingsButton() {
       onClick={() => setOpen(true)}
       aria-label={attention ? t.nav.settingsAttention : t.nav.settings}
       title={t.nav.settings}
-      className="relative flex h-10 w-full items-center justify-center gap-2 rounded-full px-3 text-sm text-fg-2 transition-colors hover:bg-surface-3 hover:text-fg wide:justify-start"
+      className="relative flex h-10 w-full items-center justify-center gap-2 rounded-lg px-3 text-sm text-fg-2 transition-colors hover:bg-surface-3 hover:text-fg wide:justify-start"
     >
       <GearSixIcon size={19} />
       <span className="hidden flex-1 text-left wide:inline">{t.nav.settings}</span>
       {attention && (
         <>
           <span className="absolute top-2 right-[calc(50%-14px)] size-2 rounded-full bg-accent ring-2 ring-surface-2 wide:hidden" />
-          <span className="hidden rounded-full bg-accent-soft px-2 py-0.5 text-[11px] font-semibold text-accent-text wide:inline">
+          <span className="hidden rounded-lg bg-accent-soft px-2 py-0.5 text-[11px] font-semibold text-accent-text wide:inline">
             {updatable ? t.nav.updatePill : t.nav.checkPill}
           </span>
         </>
@@ -120,7 +120,7 @@ export function Rail() {
               title={t.nav[key]}
               className={({ isActive }) =>
                 cn(
-                  "flex h-11 items-center justify-center gap-3 rounded-full transition-colors duration-200 wide:justify-start wide:px-4 [@media(max-height:540px)]:h-9",
+                  "flex h-11 items-center justify-center gap-3 rounded-lg transition-colors duration-200 wide:justify-start wide:px-4 [@media(max-height:540px)]:h-9",
                   isActive ? "bg-surface-4 text-fg" : "text-fg-2 hover:bg-surface-3 hover:text-fg",
                 )
               }

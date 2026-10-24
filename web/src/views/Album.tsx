@@ -93,7 +93,7 @@ export default function Album() {
           {saved ? (
             <Link
               to={paths.playlist(saved)}
-              className="ml-1 flex h-11 items-center gap-2 rounded-full bg-accent-soft px-4 text-sm font-medium text-accent-text"
+              className="ml-1 flex h-11 items-center gap-2 rounded-lg bg-accent-soft px-4 text-sm font-medium text-accent-text"
             >
               {t.album.openPlaylist} <ArrowRightIcon size={16} />
             </Link>
@@ -102,7 +102,7 @@ export default function Album() {
               type="button"
               disabled={saving}
               onClick={() => void save()}
-              className="ml-1 flex h-11 items-center gap-2 rounded-full bg-surface-3 px-4 text-sm font-medium transition-transform hover:bg-surface-4 active:scale-[0.97] disabled:opacity-60"
+              className="ml-1 flex h-11 items-center gap-2 rounded-lg bg-surface-3 px-4 text-sm font-medium transition-transform hover:bg-surface-4 active:scale-[0.97] disabled:opacity-60"
             >
               <PlaylistIcon size={18} /> {t.album.saveAsPlaylist}
             </button>
@@ -121,7 +121,7 @@ export default function Album() {
             <button
               type="button"
               onClick={page.retry}
-              className="mt-2 h-11 rounded-full bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
+              className="mt-2 h-11 rounded-lg bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
             >
               {t.common.retry}
             </button>

@@ -58,7 +58,7 @@ function Stage({ track, slot, className }: { track: Track; slot: number; classNa
         className="relative size-full rounded-[18px] shadow-[0_24px_60px_rgb(0_0_0/0.45)]"
       />
       {note && (
-        <span className="absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded-full bg-black/65 px-3 py-2 text-center text-[13px] font-medium text-white backdrop-blur-md">
+        <span className="absolute inset-x-3 bottom-3 flex items-center justify-center gap-2 rounded-lg bg-black/65 px-3 py-2 text-center text-[13px] font-medium text-white backdrop-blur-md">
           {note === "findingClip" ? (
             <MagnifyingGlassIcon size={16} className="shrink-0" />
           ) : (
@@ -144,7 +144,7 @@ function PanelTabs({ tab, onTab }: { tab: PanelTab; onTab: (t: PanelTab) => void
           aria-selected={tab === id}
           onClick={() => onTab(id)}
           className={cn(
-            "h-9 rounded-full px-4 text-sm font-medium transition-colors",
+            "h-9 rounded-lg px-4 text-sm font-medium transition-colors",
             tab === id ? "bg-surface-4 text-fg" : "text-fg-2 hover:text-fg",
           )}
         >

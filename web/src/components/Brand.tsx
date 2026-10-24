@@ -1,6 +1,6 @@
 import { cn } from "../lib/format";
 
-/** The Musike mark: three equalizer bars forming an M. */
+/** The Iskan Music mark: three equalizer bars forming an M. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
@@ -17,7 +17,7 @@ export function Logo({ className }: { className?: string }) {
   return (
     <span className={cn("inline-flex items-center gap-1.5", className)}>
       <LogoMark className="size-7 text-accent-text" />
-      <span className="text-[17px] font-semibold tracking-tight">musike</span>
+      <span className="text-[17px] font-semibold tracking-tight">Iskan Music</span>
     </span>
   );
 }

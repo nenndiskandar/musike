@@ -26,7 +26,7 @@ function Item({ icon, children, onClick, danger }: { icon: ReactNode; children: 
       role="menuitem"
       onClick={onClick}
       className={cn(
-        "flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-[15px] transition-colors md:py-2 md:text-sm",
+        "flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-[15px] transition-colors md:py-2 md:text-sm",
         "hover:bg-surface-3 focus-visible:bg-surface-3",
         danger ? "text-danger" : "text-fg",
       )}
@@ -134,7 +134,7 @@ export function TrackMenu() {
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
               style={pos}
-              className="absolute w-64 origin-top-left rounded-2xl border border-line-strong bg-surface-2 p-1.5 shadow-[0_16px_48px_rgb(0_0_0/0.45)]"
+              className="absolute w-64 origin-top-left rounded-lg border border-line-strong bg-surface-2 p-1.5 shadow-[0_16px_48px_rgb(0_0_0/0.45)]"
             >
               {content}
             </motion.div>

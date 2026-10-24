@@ -69,7 +69,7 @@ export default function Artist() {
             <button
               type="button"
               onClick={page.retry}
-              className="mt-2 h-11 rounded-full bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
+              className="mt-2 h-11 rounded-lg bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
             >
               {t.common.retry}
             </button>

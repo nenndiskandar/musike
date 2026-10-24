@@ -71,7 +71,7 @@ export function BackButton({ fallback, label }: { fallback: string; label?: stri
     <button
       type="button"
       onClick={() => ((window.history.state as { idx?: number } | null)?.idx ? navigate(-1) : navigate(fallback))}
-      className="flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3 text-sm font-medium text-fg-2 hover:bg-surface-3 hover:text-fg"
+      className="flex h-9 shrink-0 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-fg-2 hover:bg-surface-3 hover:text-fg"
     >
       <ArrowLeftIcon size={16} /> {label ?? t.common.back}
     </button>

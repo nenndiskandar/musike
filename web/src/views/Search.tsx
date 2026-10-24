@@ -183,7 +183,7 @@ export default function Search() {
       aria-selected={kind === k}
       onClick={() => setQuery(text || q, k)}
       className={cn(
-        "h-9 rounded-full px-4 text-sm font-medium transition-colors duration-200",
+        "h-9 rounded-lg px-4 text-sm font-medium transition-colors duration-200",
         kind === k ? "bg-fg text-bg" : "bg-surface-3 text-fg-2 hover:text-fg",
       )}
     >
@@ -265,7 +265,7 @@ export default function Search() {
                   setText(s);
                   setQuery(s);
                 }}
-                className="flex h-8 shrink-0 items-center gap-1.5 rounded-full bg-surface-2 px-3 text-[13px] text-fg-2 ring-1 ring-line transition-colors hover:text-fg"
+                className="flex h-8 shrink-0 items-center gap-1.5 rounded-lg bg-surface-2 px-3 text-[13px] text-fg-2 ring-1 ring-line transition-colors hover:text-fg"
               >
                 <ArrowUpLeftIcon size={13} className="text-fg-3" /> {s}
               </button>
@@ -288,7 +288,7 @@ export default function Search() {
                 aria-controls="genre-panel"
                 onClick={() => setGenresOpen(!genresOpen)}
                 className={cn(
-                  "flex h-9 items-center gap-1.5 rounded-full px-3 text-sm font-medium transition-colors",
+                  "flex h-9 items-center gap-1.5 rounded-lg px-3 text-sm font-medium transition-colors",
                   genresOpen ? "bg-accent-soft text-accent-text" : "text-fg-2 hover:bg-surface-3 hover:text-fg",
                 )}
               >
@@ -298,7 +298,7 @@ export default function Search() {
                 to={paths.searchList}
                 aria-label={t.search.list}
                 title={t.search.list}
-                className="flex h-9 items-center gap-1.5 rounded-full px-3 text-sm font-medium text-fg-2 hover:bg-surface-3 hover:text-fg"
+                className="flex h-9 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-fg-2 hover:bg-surface-3 hover:text-fg"
               >
                 <ListBulletsIcon size={16} /> <span className="hidden sm:inline">{t.search.list}</span>
               </Link>
@@ -348,7 +348,7 @@ export default function Search() {
               <button
                 type="button"
                 onClick={() => setRetry((n) => n + 1)}
-                className="mt-2 h-11 rounded-full bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
+                className="mt-2 h-11 rounded-lg bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
               >
                 {t.common.retry}
               </button>
@@ -398,7 +398,7 @@ export default function Search() {
                         setText(r);
                         setQuery(r);
                       }}
-                      className="h-10 rounded-full bg-surface-2 px-4 text-sm ring-1 ring-line transition-colors hover:bg-surface-3"
+                      className="h-10 rounded-lg bg-surface-2 px-4 text-sm ring-1 ring-line transition-colors hover:bg-surface-3"
                     >
                       {r}
                     </button>

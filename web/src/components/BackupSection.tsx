@@ -7,7 +7,7 @@ import { toast } from "../stores/ui";
 
 type Mode = "merge" | "replace";
 
-/** Export the library to a file and import it in any other Musike (web, desktop, another computer). */
+/** Export the library to a file and import it in any other Iskan Music (web, desktop, another computer). */
 export function BackupSection() {
   const input = useRef<HTMLInputElement>(null);
   const [pending, setPending] = useState<{ backup: Backup; file: string } | null>(null);
@@ -162,7 +162,7 @@ export function BackupSection() {
           )}
 
           <div className="flex justify-end gap-2">
-            <button type="button" onClick={() => setPending(null)} className="h-11 rounded-full px-5 text-sm font-medium text-fg-2 hover:text-fg">
+            <button type="button" onClick={() => setPending(null)} className="h-11 rounded-lg px-5 text-sm font-medium text-fg-2 hover:text-fg">
               {t.common.cancel}
             </button>
             <button
@@ -170,7 +170,7 @@ export function BackupSection() {
               disabled={busy === "import"}
               onClick={() => void onImport()}
               className={cn(
-                "h-11 rounded-full px-6 text-sm font-semibold transition-transform active:scale-[0.97] disabled:opacity-50",
+                "h-11 rounded-lg px-6 text-sm font-semibold transition-transform active:scale-[0.97] disabled:opacity-50",
                 mode === "replace" ? "bg-danger text-white" : "bg-accent text-accent-ink",
               )}
             >

@@ -1,7 +1,7 @@
 import type { AlbumCard, AlbumPage, ArtistPage, Genre, GenreArtist, GenrePage, Library, Playlist, Track } from "./types";
 
 /**
- * What the app needs from a backend. The web app and the desktop app talk to the Musike server over HTTP
+ * What the app needs from a backend. The web app and the desktop app talk to the Iskan Music server over HTTP
  * (lib/api.ts); the Android app does the same work on the phone (native/api.ts). The build picks one.
  */
 

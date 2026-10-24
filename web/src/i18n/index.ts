@@ -17,7 +17,7 @@ const KEY = "musike:lang";
 
 export const isLang = (v: unknown): v is Lang => v === "en" || v === "pt-BR";
 
-/** Musike speaks English until the user picks another language in Settings. */
+//** Iskan Music speaks English until the user picks another language in Settings. */
 function readLang(): Lang {
   try {
     const saved = localStorage.getItem(KEY);

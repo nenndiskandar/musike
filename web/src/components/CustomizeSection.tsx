@@ -123,7 +123,7 @@ export function LayoutSection() {
             aria-checked={a[key]}
             onClick={() => a.set({ [key]: !a[key] })}
             className={cn(
-              "flex h-9 items-center gap-1.5 rounded-full px-3.5 text-[13px] font-medium ring-1 transition-colors",
+              "flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-[13px] font-medium ring-1 transition-colors",
               a[key] ? "bg-accent-soft text-accent-text ring-accent/40" : "text-fg-2 ring-line hover:text-fg",
             )}
           >

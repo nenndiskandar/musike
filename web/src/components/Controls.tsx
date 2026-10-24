@@ -172,13 +172,13 @@ export function ModeSwitch({ className }: { className?: string }) {
 
   const seg = (on: boolean) =>
     cn(
-      "flex h-9 items-center gap-1.5 rounded-full px-3.5 text-[13px] font-medium transition-colors duration-200",
+      "flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-[13px] font-medium transition-colors duration-200",
       on ? "bg-surface-4 text-fg shadow-[inset_0_1px_0_var(--highlight)]" : "text-fg-2 hover:text-fg",
     );
 
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <div role="radiogroup" aria-label={t.player.mode} className="flex rounded-full bg-surface-1 p-1 ring-1 ring-line">
+      <div role="radiogroup" aria-label={t.player.mode} className="flex rounded-lg bg-surface-1 p-1 ring-1 ring-line">
         <button type="button" role="radio" aria-checked={!preferVideo} className={seg(!preferVideo)} onClick={() => setPreferVideo(false)}>
           <MusicNotesIcon size={15} /> {t.player.audio}
         </button>
@@ -199,7 +199,7 @@ export function ModeSwitch({ className }: { className?: string }) {
           onClick={() => setQuality(quality === "sd" ? "hd" : "sd")}
           title={quality === "sd" ? t.player.toHd : t.player.toSd}
           className={cn(
-            "h-9 rounded-full px-3 font-mono text-[12px] font-semibold ring-1 transition-colors",
+            "h-9 rounded-lg px-3 font-mono text-[12px] font-semibold ring-1 transition-colors",
             quality === "hd" ? "bg-accent-soft text-accent-text ring-accent/40" : "text-fg-2 ring-line hover:text-fg",
           )}
         >

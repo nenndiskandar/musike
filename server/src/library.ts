@@ -150,7 +150,7 @@ export async function removeFromPlaylist(pid: string, trackId: string): Promise<
   return p;
 }
 
-// Backup import: a library exported from any Musike instance (web, desktop, another computer).
+// Backup import: a library exported from any Iskan Music instance (web, desktop, another computer).
 
 const MAX_PLAYLISTS = 1000;
 const MAX_TRACKS = 5000;

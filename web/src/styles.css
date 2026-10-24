@@ -24,10 +24,10 @@
   --fg: #eceef2;
   --fg-2: #9ba1ad;
   --fg-3: #6b717d;
-  --accent: #c3ec52;
-  --accent-ink: #0b0c0f;
-  --accent-text: #c3ec52;
-  --accent-soft: rgb(195 236 82 / 0.12);
+  --accent: #3f86ef;
+  --accent-ink: #0b1220;
+  --accent-text: #3f86ef;
+  --accent-soft: rgb(63 134 239 / 0.12);
   --highlight: rgb(255 255 255 / 0.06);
   --scrim: rgb(5 6 8 / 0.72);
   --danger: #ff7a6b;
@@ -45,10 +45,10 @@
   --fg: #12141a;
   --fg-2: #555b67;
   --fg-3: #7d8390;
-  --accent: #c3ec52;
-  --accent-ink: #0b0c0f;
-  --accent-text: #4a6300;
-  --accent-soft: rgb(110 150 0 / 0.12);
+  --accent: #2f6fd8;
+  --accent-ink: #ffffff;
+  --accent-text: #2456b3;
+  --accent-soft: rgb(36 86 179 / 0.12);
   --highlight: rgb(255 255 255 / 0.8);
   --scrim: rgb(20 22 28 / 0.45);
   --danger: #c4372a;
@@ -74,9 +74,9 @@
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, "SFMono-Regular", monospace;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --radius-tile: 14px;
-  --radius-art: 10px;
-  --radius-panel: 20px;
+  --radius-tile: 10px;
+  --radius-art: 8px;
+  --radius-panel: 12px;
 }
 
 @layer base {

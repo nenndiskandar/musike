@@ -45,7 +45,7 @@ function Action({
       aria-label={label}
       title={label}
       className={cn(
-        "flex h-9 shrink-0 items-center gap-1.5 rounded-full px-2.5 text-sm font-medium whitespace-nowrap transition-transform active:scale-[0.97] disabled:opacity-40 sm:px-3.5",
+        "flex h-9 shrink-0 items-center gap-1.5 rounded-lg px-2.5 text-sm font-medium whitespace-nowrap transition-transform active:scale-[0.97] disabled:opacity-40 sm:px-3.5",
         primary ? "bg-accent text-accent-ink" : "bg-surface-3 text-fg hover:bg-surface-4",
       )}
     >
@@ -160,7 +160,7 @@ export function SelectableRow({
   const t = useT();
 
   return (
-    <div className="group flex items-center gap-3 rounded-xl px-2 py-1.5 transition-colors hover:bg-surface-2 md:px-3">
+    <div className="group flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-surface-2 md:px-3">
       <button
         type="button"
         role="checkbox"

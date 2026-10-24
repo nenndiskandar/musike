@@ -12,7 +12,7 @@ import {
 } from "./apiTypes";
 import type { AlbumCard, AlbumPage, ArtistPage, Genre, GenreArtist, GenrePage, Library, Playlist, Track } from "./types";
 
-// The HTTP backend: the Musike server (web app, desktop app). The Android build swaps this module for native/api.ts.
+// The HTTP backend: the Iskan Music server (web app, desktop app). The Android build swaps this module for native/api.ts.
 export * from "./apiTypes";
 
 /** The server answers errors (and YouTube Music answers names, like genres) in the app's language. */

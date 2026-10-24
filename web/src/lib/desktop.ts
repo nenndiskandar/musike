@@ -1,4 +1,4 @@
-/** Bridge exposed by the Electron preload script when Musike runs as the desktop app. */
+/** Bridge exposed by the Electron preload script when Iskan Music runs as the desktop app. */
 interface DesktopBridge {
   platform: string;
   setTheme: (theme: "dark" | "light") => void;

@@ -79,7 +79,7 @@ function find(name: string, dirs: string[]): string | null {
 export async function refreshTools(): Promise<Tools> {
   const key = pathKey(process.env);
   const seen = new Set<string>();
-  // With a private bin folder (desktop app), use only Musike's own copies: known versions that can self-update,
+  // With a private bin folder (desktop app), use only Iskan Music's own copies: known versions that can self-update,
   // instead of whatever happens to be on the user's PATH.
   const own = config.binDir ? [config.binDir, path.join(config.binDir, "ffmpeg")] : [];
   const system = config.binDir ? [] : [...(process.env[key] ?? "").split(path.delimiter), ...(await registryPath()), ...wingetPackageDirs()];

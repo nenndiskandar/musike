@@ -39,7 +39,7 @@ export interface RunningServer {
   close: () => Promise<void>;
 }
 
-/** Builds the Musike HTTP server (API + web app) and starts listening. */
+/** Builds the Iskan Music HTTP server (API + web app) and starts listening. */
 export async function startServer(opts: StartOptions = {}): Promise<RunningServer> {
   library.useLibraryStorage(fileStorage());
   const found = await refreshTools();
@@ -49,7 +49,7 @@ export async function startServer(opts: StartOptions = {}): Promise<RunningServe
     const e = err as Error & { statusCode?: number };
     const status = e instanceof HttpError ? e.status : e.statusCode ?? 500;
     if (status >= 500) app.log.error(e);
-    // Musike's own errors are translated into the language the app asked for.
+    // Iskan Music's own errors are translated into the language the app asked for.
     const error = e instanceof HttpError ? tr(langOf(req), e.text) : e.message;
     if (!reply.sent) reply.code(status).send({ error, code: e instanceof HttpError ? e.code : undefined });
   });
@@ -147,11 +147,11 @@ export async function startServer(opts: StartOptions = {}): Promise<RunningServe
 
   app.get("/api/library", () => library.getLibrary());
 
-  /** Restores a backup file exported by any Musike instance. Big libraries need more than the 1 MB default body. */
+  /** Restores a backup file exported by any Iskan Music instance. Big libraries need more than the 1 MB default body. */
   app.post("/api/library/import", { bodyLimit: 25 * 1024 * 1024 }, async (req) => {
     const body = (req.body ?? {}) as { backup?: { format?: unknown; version?: unknown; library?: unknown }; mode?: unknown };
     const backup = body.backup;
-    if (backup?.format !== "musike-backup") throw new HttpError(400, msg("notBackup"));
+    if (backup?.format !== "iskan-music-backup") throw new HttpError(400, msg("notBackup"));
     if (typeof backup.version !== "number" || backup.version > 1) {
       throw new HttpError(400, msg("newerBackup"));
     }

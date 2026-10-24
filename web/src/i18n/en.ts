@@ -1,5 +1,5 @@
 /**
- * English: Musike's own language and the source of truth for every other one.
+ * English: Iskan Music's own language and the source of truth for every other one.
  * Other languages are typed as `Messages`, so a missing or extra key fails the build.
  */
 
@@ -163,7 +163,7 @@ export const en = {
     cantPlay: (title: string, reason: string) => `Couldn't play "${title}". ${reason}`,
     aTrack: "this track",
     browserCantPlay: "The browser couldn't play this format.",
-    serverDown: "Can't reach the Musike server. Is it running?",
+    serverDown: "Can't reach the Iskan Music server. Is it running?",
     streamFailed: "YouTube stopped serving this track. Try it again in a moment.",
     offline: "You're offline. Connect to the internet to play music.",
     httpError: (status: number) => `Error ${status}`,
@@ -266,7 +266,7 @@ export const en = {
     failed: "Search failed",
     emptyTitle: "Many songs at once",
     emptyBody:
-      "Musike searches for each one and picks the best match. Check them, swap any that came out wrong, then play, favorite or send them all to a playlist.",
+      "Iskan Music searches for each one and picks the best match. Check them, swap any that came out wrong, then play, favorite or send them all to a playlist.",
   },
 
   selection: {
@@ -346,19 +346,19 @@ export const en = {
     toStable: "Back to Stable",
     updateTo: (version: string) => `Update to ${version}`,
     check: "Check and update",
-    noWinget: "winget isn't available. Install yt-dlp manually and restart Musike.",
+    noWinget: "winget isn't available. Install yt-dlp manually and restart Iskan Music.",
     starting: "Starting",
     denoRole: "Solves YouTube's challenges",
     ffmpegRole: "Merges video and audio in HD mode",
     depMissingBefore: "Not found. In a terminal:",
-    depMissingAfter: "and restart Musike.",
+    depMissingAfter: "and restart Iskan Music.",
   },
 
   customize: {
     accent: "Accent color",
     customColor: "Custom color",
     colors: {
-      volt: "Volt",
+      azure: "Azure",
       mint: "Mint",
       aqua: "Aqua",
       sky: "Sky",
@@ -382,12 +382,12 @@ export const en = {
 
   backup: {
     yourData: "Your data",
-    body: "Take your playlists, favorites and history to another computer or to the desktop app: export a file here and import it into the other Musike.",
+    body: "Take your playlists, favorites and history to another computer or to the desktop app: export a file here and import it into the other Iskan Music.",
     export: "Export",
     exporting: "Exporting",
     import: "Import",
     importing: "Importing",
-    pickFile: "Choose a Musike backup file",
+    pickFile: "Choose an Iskan Music backup file",
     created: (playlists: number, favorites: number) =>
       `Backup created: ${count(playlists, "playlist", "playlists")} and ${count(favorites, "favorite", "favorites")}`,
     exportedAt: (date: string, time: string) => `Exported on ${date} at ${time}`,
@@ -410,9 +410,9 @@ export const en = {
     updatedPlaylists: (n: number) => count(n, "updated playlist", "updated playlists"),
     addedTracks: (n: number) => count(n, "track added", "tracks added"),
     addedFavorites: (n: number) => count(n, "favorite", "favorites"),
-    unreadable: "Couldn't read the file. It needs to be a .musike.json backup.",
-    notBackup: "This file isn't a Musike backup.",
-    newer: "This backup was made by a newer Musike. Update the app to import it.",
+    unreadable: "Couldn't read the file. It needs to be a .iskan-music.json backup.",
+    notBackup: "This file isn't an Iskan Music backup.",
+    newer: "This backup was made by a newer Iskan Music. Update the app to import it.",
   },
 
   toasts: {

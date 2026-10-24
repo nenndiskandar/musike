@@ -38,7 +38,7 @@ const TrackRow = memo(function TrackRow({ track, position, onPlay, playlistId, s
     <li
       onContextMenu={menuAt}
       className={cn(
-        "group relative grid items-center gap-3 rounded-xl px-2 py-1.5 transition-colors duration-150 hover:bg-surface-2 md:px-3",
+        "group relative grid items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-150 hover:bg-surface-2 md:px-3",
         showAlbum
           ? "grid-cols-[auto_1fr_auto] md:grid-cols-[28px_auto_1fr_auto_auto] lg:grid-cols-[28px_auto_minmax(0,1.4fr)_minmax(0,1fr)_auto_auto]"
           : "grid-cols-[auto_1fr_auto] md:grid-cols-[28px_auto_1fr_auto_auto]",
@@ -48,7 +48,7 @@ const TrackRow = memo(function TrackRow({ track, position, onPlay, playlistId, s
         type="button"
         onClick={onPlay}
         aria-label={t.common.playX(track.title)}
-        className="absolute inset-0 rounded-xl focus-visible:outline-offset-[-2px]"
+        className="absolute inset-0 rounded-lg focus-visible:outline-offset-[-2px]"
       />
 
       <span className="pointer-events-none hidden justify-center font-mono text-[13px] text-fg-3 tabular-nums md:flex">

@@ -81,7 +81,7 @@ export function ensureComponent(c: Component): Promise<void> {
   const job = (async () => {
     await mkdir(bin, { recursive: true });
     const tmp = path.join(bin, `.${c}.download`);
-    const res = await fetch(SOURCES[c], { headers: { "user-agent": "musike" }, redirect: "follow" });
+    const res = await fetch(SOURCES[c], { headers: { "user-agent": "iskan-music" }, redirect: "follow" });
     if (!res.ok || !res.body) throw new HttpError(502, msg("downloadFailed", { tool: c, status: res.status }));
     state.total = Number(res.headers.get("content-length")) || 0;
 

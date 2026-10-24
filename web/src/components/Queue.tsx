@@ -34,8 +34,8 @@ export function QueueList({ compact = false }: { compact?: boolean }) {
   const row = (i: number, isCurrent: boolean) => {
     const track = queue[i];
     return (
-      <li key={`${track.id}-${i}`} className="group relative flex items-center gap-3 rounded-xl px-2 py-1.5 hover:bg-surface-3">
-        <button type="button" onClick={() => jumpTo(i)} className="absolute inset-0 rounded-xl" aria-label={t.common.playX(track.title)} />
+      <li key={`${track.id}-${i}`} className="group relative flex items-center gap-3 rounded-lg px-2 py-1.5 hover:bg-surface-3">
+        <button type="button" onClick={() => jumpTo(i)} className="absolute inset-0 rounded-lg" aria-label={t.common.playX(track.title)} />
         <Artwork src={track.thumb} className="pointer-events-none size-10 rounded-[8px]" />
         <div className="pointer-events-none min-w-0 flex-1">
           <p className={cn("truncate text-sm font-medium", isCurrent ? "text-accent-text" : "text-fg")}>{track.title}</p>
@@ -90,7 +90,7 @@ export function QueueList({ compact = false }: { compact?: boolean }) {
         )}
       </section>
 
-      <label className="mx-2 flex cursor-pointer items-center justify-between gap-3 rounded-xl bg-surface-1 px-3 py-2.5 ring-1 ring-line">
+      <label className="mx-2 flex cursor-pointer items-center justify-between gap-3 rounded-lg bg-surface-1 px-3 py-2.5 ring-1 ring-line">
         <span>
           <span className="block text-sm font-medium">{t.queue.autoRadio}</span>
           <span className="block text-xs text-fg-2">{t.queue.autoRadioBody}</span>

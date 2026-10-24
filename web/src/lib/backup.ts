@@ -7,11 +7,11 @@ import { api, saveFile, type ImportResult } from "./api";
 import type { Library } from "./types";
 
 /**
- * Portable backup of a Musike instance: the library plus a few preferences.
- * Version 1 is read by every Musike from this release on; bump `version` only for breaking changes.
+ * Portable backup of an Iskan Music instance: the library plus a few preferences.
+ * Version 1 is read by every Iskan Music from this release on; bump `version` only for breaking changes.
  */
 export interface Backup {
-  format: "musike-backup";
+  format: "iskan-music-backup";
   version: 1;
   exportedAt: string;
   app: string;
@@ -31,10 +31,10 @@ export async function createBackup(): Promise<Backup> {
   const library = await api.library();
   const p = usePlayer.getState();
   return {
-    format: "musike-backup",
+    format: "iskan-music-backup",
     version: 1,
     exportedAt: new Date().toISOString(),
-    app: `Musike ${__APP_VERSION__}`,
+    app: `Iskan Music ${__APP_VERSION__}`,
     library: { favorites: library.favorites, playlists: library.playlists, history: library.history },
     settings: {
       theme: useUi.getState().theme,
@@ -50,7 +50,7 @@ export async function createBackup(): Promise<Backup> {
 
 /** Saves the backup as a file: a download in browsers, "Save as" on desktop, the share sheet on Android. */
 export function downloadBackup(backup: Backup): Promise<void> {
-  return saveFile(`musike-backup-${backup.exportedAt.slice(0, 10)}.musike.json`, JSON.stringify(backup, null, 2));
+  return saveFile(`iskan-music-backup-${backup.exportedAt.slice(0, 10)}.iskan-music.json`, JSON.stringify(backup, null, 2));
 }
 
 export async function readBackup(file: File): Promise<Backup> {
@@ -60,7 +60,7 @@ export async function readBackup(file: File): Promise<Backup> {
   } catch {
     throw new Error(getT().backup.unreadable);
   }
-  if (data?.format !== "musike-backup" || !data.library) throw new Error(getT().backup.notBackup);
+  if (data?.format !== "iskan-music-backup" || !data.library) throw new Error(getT().backup.notBackup);
   if (typeof data.version !== "number" || data.version > 1) {
     throw new Error(getT().backup.newer);
   }

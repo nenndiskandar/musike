@@ -101,7 +101,7 @@ export function FloatingVideo() {
           exit={{ opacity: 0, y: 16, scale: 0.96 }}
           transition={{ type: "spring", stiffness: 420, damping: 36 }}
           className={cn(
-            "group fixed z-30 overflow-hidden rounded-2xl border border-line-strong bg-black shadow-[0_16px_40px_rgb(0_0_0/0.5)]",
+            "group fixed z-30 overflow-hidden rounded-lg border border-line-strong bg-black shadow-[0_16px_40px_rgb(0_0_0/0.5)]",
             isMd
               ? "right-4 bottom-[112px] w-72"
               : "right-3 bottom-[calc(140px+env(safe-area-inset-bottom))] w-44",

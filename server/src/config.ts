@@ -17,7 +17,7 @@ export const config = {
   cacheMaxBytes: Number(process.env.MUSIKE_CACHE_MAX_MB ?? 2048) * 1024 * 1024,
   webDist: process.env.MUSIKE_WEB_DIST ?? path.resolve(root, "..", "web", "dist"),
   /**
-   * Private folder for yt-dlp, Deno and FFmpeg downloaded by Musike itself (the desktop app sets it).
+   * Private folder for yt-dlp, Deno and FFmpeg downloaded by Iskan Music itself (the desktop app sets it).
    * Searched before the system PATH, and where "Instalar" puts the tools when set.
    */
   binDir: process.env.MUSIKE_BIN_DIR || null,

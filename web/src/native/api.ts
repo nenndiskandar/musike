@@ -22,7 +22,7 @@ import { media } from "./media";
 import { nativeStorage } from "./storage";
 import { forgetUrl, resolveAudio } from "./streams";
 
-// The Android backend: the Musike server's own code (search, genres, artists, albums, library), running on the
+// The Android backend: the Iskan Music server's own code (search, genres, artists, albums, library), running on the
 // phone instead of behind HTTP. The build swaps lib/api.ts for this module (see vite.config.ts).
 export * from "../lib/apiTypes";
 
@@ -102,7 +102,7 @@ export const api: MusikeApi = {
   importLibrary: (backup, mode) =>
     call(async () => {
       const b = (backup ?? {}) as { format?: unknown; version?: unknown; library?: unknown };
-      if (b.format !== "musike-backup") throw fail(400, "notBackup");
+      if (b.format !== "iskan-music-backup") throw fail(400, "notBackup");
       if (typeof b.version !== "number" || b.version > 1) throw fail(400, "newerBackup");
       return library.importLibrary(b.library, mode);
     }),

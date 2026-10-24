@@ -48,7 +48,7 @@ export default function Collection({ kind }: Props) {
           title={t.collection.notFoundTitle}
           body={t.collection.notFoundBody}
           action={
-            <Link to={paths.library} className="mt-2 h-11 rounded-full bg-surface-3 px-6 text-sm leading-[44px] font-medium">
+            <Link to={paths.library} className="mt-2 h-11 rounded-lg bg-surface-3 px-6 text-sm leading-[44px] font-medium">
               {t.collection.goToLibrary}
             </Link>
           }
@@ -128,7 +128,7 @@ export default function Collection({ kind }: Props) {
                   : t.collection.emptyPlaylistBody
             }
             action={
-              <Link to={paths.search} className="mt-2 h-11 rounded-full bg-accent px-6 text-sm leading-[44px] font-semibold text-accent-ink">
+              <Link to={paths.search} className="mt-2 h-11 rounded-lg bg-accent px-6 text-sm leading-[44px] font-semibold text-accent-ink">
                 {t.common.searchMusic}
               </Link>
             }
@@ -146,7 +146,7 @@ export default function Collection({ kind }: Props) {
                   setMoreOpen(false);
                   setRenaming(true);
                 }}
-                className="flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-surface-3"
+                className="flex items-center gap-3 rounded-lg px-3 py-3 text-left hover:bg-surface-3"
               >
                 <PencilSimpleIcon size={18} className="text-fg-2" /> {t.collection.rename}
               </button>
@@ -156,7 +156,7 @@ export default function Collection({ kind }: Props) {
                   setMoreOpen(false);
                   setConfirmDelete(true);
                 }}
-                className="flex items-center gap-3 rounded-xl px-3 py-3 text-left text-danger hover:bg-surface-3"
+                className="flex items-center gap-3 rounded-lg px-3 py-3 text-left text-danger hover:bg-surface-3"
               >
                 <TrashIcon size={18} /> {t.collection.deletePlaylist}
               </button>
@@ -180,7 +180,7 @@ export default function Collection({ kind }: Props) {
               {t.collection.deleteBody(playlist.name, playlist.tracks.length)}
             </p>
             <div className="mt-5 flex justify-end gap-2">
-              <button type="button" onClick={() => setConfirmDelete(false)} className="h-11 rounded-full px-5 text-sm font-medium text-fg-2 hover:text-fg">
+              <button type="button" onClick={() => setConfirmDelete(false)} className="h-11 rounded-lg px-5 text-sm font-medium text-fg-2 hover:text-fg">
                 {t.common.cancel}
               </button>
               <button
@@ -190,7 +190,7 @@ export default function Collection({ kind }: Props) {
                   void lib.deletePlaylist(playlist.id);
                   navigate(paths.library);
                 }}
-                className="h-11 rounded-full bg-danger px-6 text-sm font-semibold text-white"
+                className="h-11 rounded-lg bg-danger px-6 text-sm font-semibold text-white"
               >
                 {t.collection.delete}
               </button>

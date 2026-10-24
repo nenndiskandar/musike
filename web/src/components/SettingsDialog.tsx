@@ -29,7 +29,7 @@ function Segmented<T extends string>({
   onChange: (v: T) => void;
 }) {
   return (
-    <div role="radiogroup" aria-label={label} className="flex rounded-full bg-surface-1 p-1 ring-1 ring-line">
+    <div role="radiogroup" aria-label={label} className="flex rounded-lg bg-surface-1 p-1 ring-1 ring-line">
       {options.map(([v, content]) => (
         <button
           key={v}
@@ -38,7 +38,7 @@ function Segmented<T extends string>({
           aria-checked={value === v}
           onClick={() => onChange(v)}
           className={cn(
-            "flex h-9 flex-1 items-center justify-center gap-1.5 rounded-full px-3 text-[13px] font-medium transition-colors duration-200",
+            "flex h-9 flex-1 items-center justify-center gap-1.5 rounded-lg px-3 text-[13px] font-medium transition-colors duration-200",
             value === v ? "bg-surface-4 text-fg shadow-[inset_0_1px_0_var(--highlight)]" : "text-fg-2 hover:text-fg",
           )}
         >
@@ -114,11 +114,11 @@ export function SettingsDialog() {
   else action = t.settings.check;
 
   const chip = !info ? null : missing ? (
-    <span className="rounded-full bg-danger/15 px-2.5 py-1 text-xs font-medium text-danger">{t.settings.chipMissing}</span>
+    <span className="rounded-lg bg-danger/15 px-2.5 py-1 text-xs font-medium text-danger">{t.settings.chipMissing}</span>
   ) : y?.updateAvailable ? (
-    <span className="rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent-text">{t.settings.chipUpdate}</span>
+    <span className="rounded-lg bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent-text">{t.settings.chipUpdate}</span>
   ) : (
-    <span className="rounded-full bg-surface-3 px-2.5 py-1 text-xs font-medium text-fg-2">{t.settings.chipOk}</span>
+    <span className="rounded-lg bg-surface-3 px-2.5 py-1 text-xs font-medium text-fg-2">{t.settings.chipOk}</span>
   );
 
   return (
@@ -199,7 +199,7 @@ export function SettingsDialog() {
               type="button"
               disabled={running || !info || (missing && !info.canInstall)}
               onClick={() => void update(channel)}
-              className="flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 font-semibold text-accent-ink transition-transform active:scale-[0.98] disabled:opacity-60"
+              className="flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-6 font-semibold text-accent-ink transition-transform active:scale-[0.98] disabled:opacity-60"
             >
               {running ? (
                 <ArrowsClockwiseIcon size={20} weight="bold" className="animate-spin" />

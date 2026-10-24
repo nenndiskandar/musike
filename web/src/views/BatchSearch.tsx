@@ -132,7 +132,7 @@ export default function BatchSearch() {
         actions={
           <Link
             to={paths.search}
-            className="flex h-9 items-center gap-1.5 rounded-full px-3 text-sm font-medium text-fg-2 hover:bg-surface-3 hover:text-fg"
+            className="flex h-9 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-fg-2 hover:bg-surface-3 hover:text-fg"
           >
             <ArrowLeftIcon size={16} /> {t.batch.simple}
           </Link>
@@ -172,7 +172,7 @@ export default function BatchSearch() {
           <button
             type="submit"
             disabled={!terms.length}
-            className="h-11 rounded-full bg-accent px-6 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:opacity-40"
+            className="h-11 rounded-lg bg-accent px-6 text-sm font-semibold text-accent-ink transition-transform active:scale-[0.97] disabled:opacity-40"
           >
             {terms.length > 1 ? t.batch.searchN(terms.length) : t.batch.search}
           </button>
@@ -244,7 +244,7 @@ function EntryRow({ entry, index }: { entry: Entry; index: number }) {
         <button
           type="button"
           onClick={() => retry(index)}
-          className="h-9 rounded-full bg-surface-3 px-4 text-sm font-medium hover:bg-surface-4"
+          className="h-9 rounded-lg bg-surface-3 px-4 text-sm font-medium hover:bg-surface-4"
         >
           {t.common.retry}
         </button>
@@ -267,7 +267,7 @@ function EntryRow({ entry, index }: { entry: Entry; index: number }) {
               onClick={() => setOpen((o) => !o)}
               aria-expanded={open}
               title={t.batch.swap}
-              className="flex h-9 shrink-0 items-center gap-1 rounded-full px-2.5 text-sm text-fg-2 hover:bg-surface-3 hover:text-fg"
+              className="flex h-9 shrink-0 items-center gap-1 rounded-lg px-2.5 text-sm text-fg-2 hover:bg-surface-3 hover:text-fg"
             >
               <ArrowsClockwiseIcon size={16} />
               <span className="hidden sm:inline">{t.batch.swapShort}</span>
@@ -287,7 +287,7 @@ function EntryRow({ entry, index }: { entry: Entry; index: number }) {
                   update(index, { pick: j, selected: true });
                   setOpen(false);
                 }}
-                className="flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-left hover:bg-surface-2"
+                className="flex w-full items-center gap-3 rounded-lg px-2 py-1.5 text-left hover:bg-surface-2"
               >
                 <Artwork src={opt.thumb} className="size-9 rounded-[8px]" />
                 <span className="min-w-0 flex-1">

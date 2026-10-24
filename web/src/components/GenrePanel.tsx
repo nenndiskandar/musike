@@ -40,7 +40,7 @@ export function GenrePanel({ id }: { id: string }) {
               <Link
                 to={paths.genre(g.id)}
                 state={{ name: g.name }}
-                className="block h-9 rounded-full bg-surface-3 px-4 text-sm leading-9 transition-colors hover:bg-surface-4"
+                className="block h-9 rounded-lg bg-surface-3 px-4 text-sm leading-9 transition-colors hover:bg-surface-4"
               >
                 {g.name}
               </Link>

@@ -68,7 +68,7 @@ function GenreBody({ id, lang }: { id: string; lang: Lang }) {
       aria-selected={view === v}
       onClick={() => setParams(v === "tracks" ? { view: "songs" } : {}, { replace: true, state: location.state })}
       className={cn(
-        "h-9 rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors duration-200",
+        "h-9 rounded-lg px-4 text-sm font-medium whitespace-nowrap transition-colors duration-200",
         view === v ? "bg-fg text-bg" : "bg-surface-3 text-fg-2 hover:text-fg",
       )}
     >
@@ -97,7 +97,7 @@ function GenreBody({ id, lang }: { id: string; lang: Lang }) {
             <button
               type="button"
               onClick={page.retry}
-              className="mt-2 h-11 rounded-full bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
+              className="mt-2 h-11 rounded-lg bg-surface-3 px-6 text-sm font-medium hover:bg-surface-4"
             >
               {t.common.retry}
             </button>
@@ -135,7 +135,7 @@ function GenreBody({ id, lang }: { id: string; lang: Lang }) {
                   type="button"
                   onClick={() => void loadMore()}
                   disabled={loadingMore}
-                  className="flex h-11 items-center gap-2 rounded-full bg-surface-3 px-6 text-sm font-medium transition-transform hover:bg-surface-4 active:scale-[0.97] disabled:opacity-70"
+                  className="flex h-11 items-center gap-2 rounded-lg bg-surface-3 px-6 text-sm font-medium transition-transform hover:bg-surface-4 active:scale-[0.97] disabled:opacity-70"
                 >
                   {loadingMore ? (
                     <>

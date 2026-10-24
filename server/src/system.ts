@@ -17,7 +17,7 @@ export interface Job {
   from: string | null;
   to: string | null;
   message: Text;
-  /** Tool output as it came, plus Musike's own lines (translated when sent). */
+  /** Tool output as it came, plus Iskan Music's own lines (translated when sent). */
   log: Text[];
 }
 
@@ -69,7 +69,7 @@ async function latestTag(channel: Channel): Promise<string | null> {
   if (cached && Date.now() - cached.at < 30 * 60_000) return cached.tag;
   try {
     const res = await fetch(RELEASES[channel], {
-      headers: { "user-agent": "musike", accept: "application/vnd.github+json" },
+      headers: { "user-agent": "iskan-music", accept: "application/vnd.github+json" },
       signal: AbortSignal.timeout(8000),
     });
     const tag = res.ok ? (((await res.json()) as { tag_name?: string }).tag_name ?? null) : null;
@@ -152,7 +152,7 @@ export function startJob(channel: Channel) {
         code = await stream(t.winget, wingetArgs("upgrade"), log, 10 * 60_000);
       }
     } else if (config.binDir) {
-      // Desktop app: download the official builds into Musike's own folder (no admin, no winget).
+      // Desktop app: download the official builds into Iskan Music's own folder (no admin, no winget).
       log(msg("downloadingTools"));
       code = await ensureEssentials().then(
         () => 0,
@@ -172,7 +172,7 @@ export function startJob(channel: Channel) {
       current.message = msg(current.from === version ? "alreadyLatest" : "ytdlpReady", { version });
     } else {
       current.status = "error";
-      // The tool's own error line says the most; Musike's lines are never errors.
+      // The tool's own error line says the most; Iskan Music's lines are never errors.
       current.message = current.log.findLast((l) => typeof l === "string" && /error|failed/i.test(l)) ?? msg("updateFailed");
     }
   };
