@@ -107,6 +107,7 @@ export const pt: Messages = {
     installPwaHow: "No iPhone: toque em Compartilhar → Adicionar à Tela de Início. No Android/Chrome: toque no botão abaixo.",
     installPwaInstalled: "Já instalado!",
     installPwaDismiss: "Agora não",
+    installWithSize: (size: string) => `Instalar · ${size} MB`,
     space: "Espaço",
     shortcuts: {
       playPause: "Tocar / pausar",

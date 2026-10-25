@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { useNavigate } from "react-router";
 import { useT } from "../i18n";
 import { cn } from "../lib/format";
-import { isStandalone } from "../lib/pwa";
+import { isStandalone, INSTALL_SIZE_MB } from "../lib/pwa";
 import { needsAttention, useSystem } from "../stores/system";
 import { useUi } from "../stores/ui";
 import { LogoMark } from "./Brand";
@@ -44,7 +44,7 @@ export function PageHeader({
         {actions}
         {installable && (
           <IconButton
-            label={t.dialogs.installPwaTitle}
+            label={INSTALL_SIZE_MB ? `${t.dialogs.installPwaTitle} · ${INSTALL_SIZE_MB} MB` : t.dialogs.installPwaTitle}
             onClick={() => setPwaOpen(true)}
             className="md:hidden"
           >

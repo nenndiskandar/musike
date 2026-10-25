@@ -12,7 +12,7 @@ import { useState, type ReactNode } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { useT } from "../i18n";
 import { cn } from "../lib/format";
-import { isStandalone } from "../lib/pwa";
+import { INSTALL_SIZE_MB, isStandalone } from "../lib/pwa";
 import { paths } from "../lib/routes";
 import { useAppearance } from "../stores/appearance";
 import { useLibrary } from "../stores/library";
@@ -71,7 +71,9 @@ function InstallButton() {
       className="flex h-10 w-full items-center justify-center gap-2 rounded-lg px-3 text-sm text-fg-2 transition-colors hover:bg-surface-3 hover:text-fg wide:justify-start"
     >
       <DownloadSimpleIcon size={19} />
-      <span className="hidden flex-1 text-left wide:inline">{t.common.install}</span>
+      <span className="hidden flex-1 text-left wide:inline">
+        {INSTALL_SIZE_MB ? t.dialogs.installWithSize(INSTALL_SIZE_MB) : t.common.install}
+      </span>
     </button>
   );
 }

@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
@@ -45,6 +45,46 @@ function nativeBackend(): Plugin {
   };
 }
 
+/**
+ * Writes the real install size into the bundle: the files the service worker precaches are exactly what an install
+ * downloads, so the button can say how much it costs before the user commits to it.
+ */
+function appSize(): Plugin {
+  const PLACEHOLDER = "__APP_SIZE__";
+  return {
+    name: "musike-app-size",
+    apply: "build",
+    // Must run after VitePWA: the service worker it generates is what says which files an install downloads.
+    enforce: "post",
+    // closeBundle order follows the workbox build, which VitePWA triggers at the end of its own closeBundle.
+    closeBundle: { order: "post", sequential: true, handler() {
+      const dist = path.join(here, "dist");
+      let urls: string[];
+      try {
+        urls = [...readFileSync(path.join(dist, "sw.js"), "utf8").matchAll(/url:"([^"]+)"/g)].map((m) => m[1]!);
+      } catch {
+        return; // no service worker (native build): nothing to measure
+      }
+      let bytes = 0;
+      for (const url of urls) {
+        try {
+          bytes += statSync(path.join(dist, url)).size;
+        } catch {
+          /* entry generated at runtime: not part of the initial install */
+        }
+      }
+      // Decimal MB with one decimal, the way stores quote download sizes.
+      const mb = Math.max(0.1, bytes / 1_000_000).toFixed(1);
+      const assets = path.join(dist, "assets");
+      for (const name of readdirSync(assets)) {
+        const file = path.join(assets, name);
+        const code = readFileSync(file, "utf8");
+        if (code.includes(PLACEHOLDER)) writeFileSync(file, code.replaceAll(PLACEHOLDER, mb));
+      }
+    } },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const native = mode === "native";
   return {
@@ -53,6 +93,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
+      appSize(),
       native
         ? nativeBackend()
         : VitePWA({

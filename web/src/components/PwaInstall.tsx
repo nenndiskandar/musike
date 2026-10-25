@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useT } from "../i18n";
-import { canInstall, isStandalone, onInstallAvailabilityChange, promptInstall } from "../lib/pwa";
+import { canInstall, INSTALL_SIZE_MB, isStandalone, onInstallAvailabilityChange, promptInstall } from "../lib/pwa";
 import { useUi } from "../stores/ui";
 import { Modal } from "./Modal";
 
@@ -35,7 +35,7 @@ export function PwaInstallDialog() {
             }}
             className="flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-6 font-semibold text-accent-ink transition-transform active:scale-[0.98]"
           >
-            {t.common.install}
+            {INSTALL_SIZE_MB ? t.dialogs.installWithSize(INSTALL_SIZE_MB) : t.common.install}
           </button>
         )}
         <button

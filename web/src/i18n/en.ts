@@ -113,6 +113,7 @@ export const en = {
     installPwaHow: "On iPhone: tap Share → Add to Home Screen. On Android/Chrome: tap the button below.",
     installPwaInstalled: "Already installed!",
     installPwaDismiss: "Not now",
+    installWithSize: (size: string) => `Install · ${size} MB`,
     space: "Space",
     shortcuts: {
       playPause: "Play / pause",

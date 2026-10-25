@@ -49,3 +49,10 @@ export function onInstallAvailabilityChange(fn: () => void): () => void {
     listeners.delete(fn);
   };
 }
+
+/**
+ * What an install downloads, in decimal MB. The build measures the precached files and writes the number in
+ * (see the appSize plugin in vite.config.ts); it stays empty during development.
+ */
+const RAW_SIZE = "__APP_SIZE__";
+export const INSTALL_SIZE_MB = RAW_SIZE.startsWith("__") ? "" : RAW_SIZE;
