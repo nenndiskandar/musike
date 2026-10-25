@@ -101,6 +101,12 @@ export const pt: Messages = {
     namePlaceholder: "Ex.: Treino, Foco, Estrada",
     createAndAdd: "Criar e adicionar",
     shortcutsTitle: "Atalhos de teclado",
+    installPwaTitle: "Instalar Iskan Music",
+    installPwaBody:
+      "Instale o app na tela inicial para uma experiência mais rápida e em tela cheia — sem a barra do navegador.",
+    installPwaHow: "No iPhone: toque em Compartilhar → Adicionar à Tela de Início. No Android/Chrome: toque no botão abaixo.",
+    installPwaInstalled: "Já instalado!",
+    installPwaDismiss: "Agora não",
     space: "Espaço",
     shortcuts: {
       playPause: "Tocar / pausar",

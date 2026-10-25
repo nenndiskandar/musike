@@ -1,8 +1,9 @@
-import { ArrowLeftIcon, GearSixIcon } from "@phosphor-icons/react";
+import { ArrowLeftIcon, DownloadSimpleIcon, GearSixIcon } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import { useNavigate } from "react-router";
 import { useT } from "../i18n";
 import { cn } from "../lib/format";
+import { isStandalone } from "../lib/pwa";
 import { needsAttention, useSystem } from "../stores/system";
 import { useUi } from "../stores/ui";
 import { LogoMark } from "./Brand";
@@ -22,8 +23,11 @@ export function PageHeader({
   className?: string;
 }) {
   const setSettingsOpen = useUi((s) => s.setSettingsOpen);
+  const setPwaOpen = useUi((s) => s.setPwaOpen);
   const attention = useSystem((s) => needsAttention(s.info));
   const t = useT();
+  // The install button only makes sense in a plain browser tab: the installed app is already installed.
+  const installable = !isStandalone();
   return (
     <header
       className={cn(
@@ -38,6 +42,15 @@ export function PageHeader({
         {title && <h1 className="min-w-0 flex-1 truncate text-lg font-semibold tracking-tight md:text-xl">{title}</h1>}
         {!title && <span className="flex-1" />}
         {actions}
+        {installable && (
+          <IconButton
+            label={t.dialogs.installPwaTitle}
+            onClick={() => setPwaOpen(true)}
+            className="md:hidden"
+          >
+            <DownloadSimpleIcon size={22} />
+          </IconButton>
+        )}
         <IconButton
           label={attention ? t.nav.settingsUpdate : t.nav.settings}
           onClick={() => setSettingsOpen(true)}

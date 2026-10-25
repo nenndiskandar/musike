@@ -4,6 +4,7 @@ import { AddToPlaylistDialog, ShortcutsDialog } from "./components/Dialogs";
 import { MiniPlayer, TabBar } from "./components/MobileChrome";
 import { NowPlayingSheet, PanelDrawer, SidePanel } from "./components/NowPlaying";
 import { PlayerBar } from "./components/PlayerBar";
+import { PwaInstallDialog } from "./components/PwaInstall";
 import { Rail } from "./components/Rail";
 import { TitleBar } from "./components/TitleBar";
 import { desktop } from "./lib/desktop";
@@ -16,6 +17,7 @@ import { useShortcuts } from "./hooks/useShortcuts";
 import { getT } from "./i18n";
 import { capabilities } from "./lib/api";
 import { cn } from "./lib/format";
+import { isStandalone } from "./lib/pwa";
 import { legacyRedirect, NOW_PLAYING_HASH, paths } from "./lib/routes";
 import { usePlayer } from "./player/player";
 import { useLibrary } from "./stores/library";
@@ -75,6 +77,27 @@ export default function App() {
     }, 1500);
     return () => clearTimeout(t);
   }, [loadSystem]);
+
+  // Offer to install the app once when it is opened in a plain browser tab (never inside the installed app).
+  useEffect(() => {
+    if (desktop || isStandalone()) return;
+    const KEY = "musike:pwa-offer";
+    try {
+      if (localStorage.getItem(KEY)) return;
+    } catch {
+      /* private mode: still offer, it just will not be remembered */
+    }
+    const timer = setTimeout(() => {
+      if (isStandalone()) return;
+      useUi.getState().setPwaOpen(true);
+      try {
+        localStorage.setItem(KEY, new Date().toISOString());
+      } catch {
+        /* ignore */
+      }
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Where each history entry was scrolled to, so Back returns to the same spot (say, deep in a genre's artists).
   const scrollMemo = useRef(new Map<string, number>());
@@ -156,6 +179,7 @@ export default function App() {
       <AddToPlaylistDialog />
       <ShortcutsDialog />
       <SettingsDialog />
+      <PwaInstallDialog />
       <Toasts />
     </div>
   );

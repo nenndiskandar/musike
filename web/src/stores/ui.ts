@@ -36,6 +36,8 @@ interface UiState {
   addToPlaylist: Track[] | null;
   shortcutsOpen: boolean;
   settingsOpen: boolean;
+  /** "Install app" dialog, offered when running in a plain browser tab. */
+  pwaPromptOpen: boolean;
   /** Cinema view: the video maximized over everything. */
   theater: boolean;
   setTheme: (t: Theme) => void;
@@ -52,6 +54,7 @@ interface UiState {
   openAddToPlaylist: (tracks: Track[] | null) => void;
   setShortcutsOpen: (open: boolean) => void;
   setSettingsOpen: (open: boolean) => void;
+  setPwaOpen: (open: boolean) => void;
   setTheater: (open: boolean) => void;
 }
 
@@ -76,6 +79,7 @@ export const useUi = create<UiState>((set, get) => ({
   addToPlaylist: null,
   shortcutsOpen: false,
   settingsOpen: false,
+  pwaPromptOpen: false,
   theater: false,
 
   setTheme: (theme) => {
@@ -132,6 +136,7 @@ export const useUi = create<UiState>((set, get) => ({
   openAddToPlaylist: (addToPlaylist) => set({ addToPlaylist, menu: null }),
   setShortcutsOpen: (shortcutsOpen) => set({ shortcutsOpen }),
   setSettingsOpen: (settingsOpen) => set({ settingsOpen }),
+  setPwaOpen: (pwaPromptOpen) => set({ pwaPromptOpen: pwaPromptOpen }),
   setTheater: (theater) => set({ theater }),
 }));
 

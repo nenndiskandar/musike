@@ -107,6 +107,12 @@ export const en = {
     namePlaceholder: "E.g. Workout, Focus, Road trip",
     createAndAdd: "Create and add",
     shortcutsTitle: "Keyboard shortcuts",
+    installPwaTitle: "Install Iskan Music",
+    installPwaBody:
+      "Install the app to your home screen for a faster, full-screen experience — no browser chrome.",
+    installPwaHow: "On iPhone: tap Share → Add to Home Screen. On Android/Chrome: tap the button below.",
+    installPwaInstalled: "Already installed!",
+    installPwaDismiss: "Not now",
     space: "Space",
     shortcuts: {
       playPause: "Play / pause",
