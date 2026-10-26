@@ -207,7 +207,18 @@ export async function startServer(opts: StartOptions = {}): Promise<RunningServe
 
   if (existsSync(config.webDist)) {
     // Wildcard mode resolves files per request, so rebuilding the web app never needs a server restart.
-    await app.register(fastifyStatic, { root: config.webDist });
+    await app.register(fastifyStatic, {
+      root: config.webDist,
+      // Hashed bundles may live in browser caches forever; the setHeaders override below
+      // makes sw.js the single always-revalidated exception.
+      maxAge: "30d",
+      // Hashed bundles (assets/*) cache for a month. Everything the browser fetches by a stable
+      // name — the service worker, index.html, the manifest — must always be revalidated,
+      // or updates only reach users after the stale copy expires.
+      setHeaders: (reply, path) => {
+        if (!path.includes(`${config.webDist}/assets/`)) reply.header("cache-control", "no-cache");
+      },
+    });
     app.setNotFoundHandler((req, reply) => {
       if (req.method === "GET" && !req.url.startsWith("/api/")) return reply.sendFile("index.html");
       reply.code(404).send({ error: tr(langOf(req), msg("routeNotFound")) });
