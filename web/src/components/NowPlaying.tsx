@@ -299,11 +299,19 @@ export function NowPlayingSheet({ open, onClose }: { open: boolean; onClose: () 
                   <Stage track={track} slot={SLOT.sheet} className="max-w-[min(100%,46dvh)]" />
                 </div>
                 <div className="flex flex-col gap-4">
-                  <TrackHeading track={track} large />
-                  <Scrubber touch />
-                  <Transport big />
-                  <ModeSwitch className="justify-center" />
-                </div>
+                                    <TrackHeading track={track} large />
+                                    <Scrubber touch />
+                                    <Transport big />
+                                    <ModeSwitch className="justify-center" />
+                                    <a
+                                      href={`/api/download/${track.id}/mp3?title=${encodeURIComponent(track.title)}&artist=${encodeURIComponent(track.artist)}`}
+                                      download
+                                      onClick={(e) => e.currentTarget.setAttribute("download", `${track.title}.mp3`)}
+                                      className="flex h-11 items-center justify-center gap-2 rounded-full bg-surface-1 text-sm font-medium ring-1 ring-line transition-colors hover:bg-surface-3 active:scale-[0.98]"
+                                    >
+                                      <DownloadSimpleIcon size={18} /> {t.nowPlaying.downloadMp3}
+                                    </a>
+                                  </div>
               </div>
             )}
           </div>
