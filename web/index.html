@@ -12,6 +12,17 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>Iskan Music</title>
     <script>
+      // Chrome fires beforeinstallprompt early, before the app bundle has run, and never fires it twice:
+      // catch it here so the install button still knows a prompt is available.
+      window.addEventListener("beforeinstallprompt", function (e) {
+        e.preventDefault();
+        window.__iskanInstallEvent = e;
+        window.dispatchEvent(new Event("iskan:install-available"));
+      });
+      window.addEventListener("appinstalled", function () {
+        window.__iskanInstallEvent = null;
+        window.dispatchEvent(new Event("iskan:install-available"));
+      });
       try {
         var t = localStorage.getItem("musike:theme");
         if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;

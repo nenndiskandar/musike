@@ -104,7 +104,9 @@ export const pt: Messages = {
     installPwaTitle: "Instalar Iskan Music",
     installPwaBody:
       "Instale o app na tela inicial para uma experiência mais rápida e em tela cheia — sem a barra do navegador.",
-    installPwaHow: "No iPhone: toque em Compartilhar → Adicionar à Tela de Início. No Android/Chrome: toque no botão abaixo.",
+    installPwaHowIos: "Toque em Compartilhar e depois em “Adicionar à Tela de Início”.",
+    installPwaHowAndroid: "Abra o menu ⋮ do Chrome e escolha “Instalar aplicativo” (ou “Adicionar à tela inicial”).",
+    installPwaHowDesktop: "Use o ícone de instalação na barra de endereços do navegador.",
     installPwaInstalled: "Já instalado!",
     installPwaDismiss: "Agora não",
     installWithSize: (size: string) => `Instalar · ${size} MB`,

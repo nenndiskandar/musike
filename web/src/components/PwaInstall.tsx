@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useT } from "../i18n";
-import { canInstall, INSTALL_SIZE_MB, isStandalone, onInstallAvailabilityChange, promptInstall } from "../lib/pwa";
+import { canInstall, INSTALL_SIZE_MB, installPlatform, isStandalone, onInstallAvailabilityChange, promptInstall } from "../lib/pwa";
 import { useUi } from "../stores/ui";
 import { Modal } from "./Modal";
 
@@ -19,12 +19,19 @@ export function PwaInstallDialog() {
 
   const standalone = isStandalone();
   const button = !standalone && installable;
+  const platform = installPlatform();
+  const how =
+    platform === "ios"
+      ? t.dialogs.installPwaHowIos
+      : platform === "android"
+        ? t.dialogs.installPwaHowAndroid
+        : t.dialogs.installPwaHowDesktop;
 
   return (
     <Modal open={open} onClose={() => setOpen(false)} title={t.dialogs.installPwaTitle}>
       <div className="flex flex-col gap-4">
         <p className="text-sm text-fg-2">
-          {standalone ? t.dialogs.installPwaInstalled : button ? t.dialogs.installPwaBody : t.dialogs.installPwaHow}
+          {standalone ? t.dialogs.installPwaInstalled : button ? t.dialogs.installPwaBody : how}
         </p>
         {button && (
           <button

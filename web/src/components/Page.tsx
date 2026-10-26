@@ -43,13 +43,16 @@ export function PageHeader({
         {!title && <span className="flex-1" />}
         {actions}
         {installable && (
-          <IconButton
-            label={INSTALL_SIZE_MB ? `${t.dialogs.installPwaTitle} · ${INSTALL_SIZE_MB} MB` : t.dialogs.installPwaTitle}
+          <button
+            type="button"
             onClick={() => setPwaOpen(true)}
-            className="md:hidden"
+            aria-label={INSTALL_SIZE_MB ? `${t.dialogs.installPwaTitle} · ${INSTALL_SIZE_MB} MB` : t.dialogs.installPwaTitle}
+            title={t.dialogs.installPwaTitle}
+            className="flex h-9 shrink-0 items-center gap-1.5 rounded-lg bg-accent px-3 text-[13px] font-semibold text-accent-ink transition-transform active:scale-95 md:hidden"
           >
-            <DownloadSimpleIcon size={22} />
-          </IconButton>
+            <DownloadSimpleIcon size={17} weight="bold" />
+            {INSTALL_SIZE_MB && <span>{INSTALL_SIZE_MB} MB</span>}
+          </button>
         )}
         <IconButton
           label={attention ? t.nav.settingsUpdate : t.nav.settings}

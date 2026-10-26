@@ -13,19 +13,51 @@ type InstallPromptEvent = Event & {
 let deferred: InstallPromptEvent | null = null;
 const listeners = new Set<() => void>();
 
+declare global {
+  interface Window {
+    __iskanInstallEvent?: InstallPromptEvent | null;
+  }
+}
+
 export const isStandalone = () =>
   window.matchMedia("(display-mode: standalone)").matches ||
   (window.navigator as { standalone?: boolean }).standalone === true;
+
+/** Which install flow the user has to follow, so the dialog never tells an Android user about the iPhone share sheet. */
+export function installPlatform(): "ios" | "android" | "other" {
+  const ua = navigator.userAgent;
+  const ios =
+    /iPad|iPhone|iPod/.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (ios) return "ios";
+  if (/Android/i.test(ua)) return "android";
+  return "other";
+}
+
+// The event can fire before this module runs: index.html catches it in a plain inline script and leaves it on window.
+if (window.__iskanInstallEvent) deferred = window.__iskanInstallEvent;
+
+const sync = () => {
+  for (const fn of listeners) fn();
+};
+
+// The inline script in index.html announces the event it caught, and mirrors appinstalled as well.
+window.addEventListener("iskan:install-available", () => {
+  deferred = window.__iskanInstallEvent ?? null;
+  sync();
+});
 
 if (!desktop) {
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
     deferred = e as InstallPromptEvent;
-    for (const fn of listeners) fn();
+    window.__iskanInstallEvent = deferred;
+    sync();
   });
   window.addEventListener("appinstalled", () => {
     deferred = null;
-    for (const fn of listeners) fn();
+    window.__iskanInstallEvent = null;
+    sync();
   });
 }
 

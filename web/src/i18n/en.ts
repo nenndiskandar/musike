@@ -110,7 +110,9 @@ export const en = {
     installPwaTitle: "Install Iskan Music",
     installPwaBody:
       "Install the app to your home screen for a faster, full-screen experience — no browser chrome.",
-    installPwaHow: "On iPhone: tap Share → Add to Home Screen. On Android/Chrome: tap the button below.",
+    installPwaHowIos: "Tap Share, then “Add to Home Screen”.",
+    installPwaHowAndroid: "Open the ⋮ menu in Chrome and pick “Install app” (or “Add to Home screen”).",
+    installPwaHowDesktop: "Use the install icon in your browser’s address bar.",
     installPwaInstalled: "Already installed!",
     installPwaDismiss: "Not now",
     installWithSize: (size: string) => `Install · ${size} MB`,
