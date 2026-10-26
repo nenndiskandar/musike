@@ -98,8 +98,8 @@ export async function saveFile(name: string, text: string) {
 /** Only the Android app needs its own bridge to the system's media controls. */
 export const systemMedia: SystemMedia | null = null;
 
-/** What this build can do. The Android build has no video yet, no yt-dlp to manage, and retries expired streams. */
-export const capabilities = { video: true, engineSettings: true, retryOnError: false };
+/** What this build can do. Video is off for Iskan Music (audio only); no yt-dlp settings in the web app, and no retry on expired streams. */
+export const capabilities = { video: false, engineSettings: true, retryOnError: false };
 
 /** Media elements hide the HTTP error body; fetch it to show the real reason. */
 export async function explainStreamError(url: string): Promise<{ message: string; code?: ErrorCode }> {
