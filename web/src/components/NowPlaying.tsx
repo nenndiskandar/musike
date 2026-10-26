@@ -1,5 +1,6 @@
 import {
   CaretDownIcon,
+  DownloadSimpleIcon,
   MagnifyingGlassIcon,
   QueueIcon,
   RadioIcon,
@@ -111,6 +112,14 @@ function PanelBody({ tab, slot }: { tab: PanelTab; slot: number }) {
       >
         <RadioIcon size={18} /> {t.nowPlaying.startRadio}
       </button>
+      <a
+        href={`/api/download/${track.id}/mp3?title=${encodeURIComponent(track.title)}&artist=${encodeURIComponent(track.artist)}`}
+        download
+        onClick={(e) => e.currentTarget.setAttribute("download", `${track.title}.mp3`)}
+        className="flex h-11 items-center justify-center gap-2 rounded-full bg-surface-1 text-sm font-medium ring-1 ring-line transition-colors hover:bg-surface-3 active:scale-[0.98]"
+      >
+        <DownloadSimpleIcon size={18} /> {t.nowPlaying.downloadMp3}
+      </a>
       {nextUp && (
         <div className="rounded-[14px] bg-surface-1 p-3 ring-1 ring-line">
           <p className="pb-2 text-xs font-medium text-fg-3">{t.nowPlaying.upNext}</p>
