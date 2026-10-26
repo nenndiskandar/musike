@@ -9,6 +9,7 @@ import { fileStorage } from "./libraryFile.js";
 import { findVideoFor, radio, search, suggestions } from "./search.js";
 import { proxyStream, serveFile } from "./stream.js";
 import { langOf, msg, tr } from "./i18n.js";
+import { serveMp3 } from "./mp3.js";
 import { presentJob, startJob, systemInfo, type Channel } from "./system.js";
 import { refreshTools, type Tools } from "./tools.js";
 import { HttpError, VIDEO_ID } from "./types.js";
@@ -133,6 +134,15 @@ export async function startServer(opts: StartOptions = {}): Promise<RunningServe
   });
 
   app.get("/api/stream/:id/audio", (req, reply) => proxyStream(req, reply, videoId(req.params), "audio"));
+
+  /** Renders (and caches) the song as an MP3 download. */
+  app.get("/api/download/:id/mp3", async (req, reply) => {
+    const body = (req.query ?? {}) as { title?: string; artist?: string };
+    return serveMp3(req, reply, videoId(req.params), {
+      title: typeof body.title === "string" ? body.title.slice(0, 200) : "",
+      artist: typeof body.artist === "string" ? body.artist : "",
+    });
+  });
 
   app.get("/api/stream/:id/video", async (req, reply) => {
     const id = videoId(req.params);

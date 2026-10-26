@@ -53,6 +53,8 @@ const en = {
   toolMissing: "{tool} wasn't found on this computer.",
   downloadFailed: "Downloading {tool} failed (HTTP {status}).",
   ffmpegPackage: "Unexpected FFmpeg package.",
+  ffmpegMissing: "FFmpeg wasn't found on this computer. MP3 downloads need it.",
+  mp3Failed: "Couldn't render the MP3. Try again in a moment.",
 };
 
 export type MsgKey = keyof typeof en;
@@ -104,6 +106,8 @@ const pt: Record<MsgKey, string> = {
   toolMissing: "{tool} não encontrado neste computador.",
   downloadFailed: "Download de {tool} falhou (HTTP {status}).",
   ffmpegPackage: "Pacote do FFmpeg inesperado.",
+  ffmpegMissing: "O FFmpeg não foi encontrado neste computador. Ele é necessário para baixar MP3.",
+  mp3Failed: "Não foi possível gerar o MP3. Tente novamente em instantes.",
 };
 
 const CATALOG: Record<Lang, Record<MsgKey, string>> = { en, "pt-BR": pt };
